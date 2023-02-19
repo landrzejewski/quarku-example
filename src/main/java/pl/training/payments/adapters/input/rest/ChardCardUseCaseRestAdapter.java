@@ -31,7 +31,6 @@ public class ChardCardUseCaseRestAdapter {
                 .path(chargeId.value())
                 .build();
         return Response.created(locationUri)
-                .entity(mapper.toDto(chargeId))
                 .build();
     }
 
