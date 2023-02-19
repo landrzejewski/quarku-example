@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
 @Transactional
@@ -14,9 +15,21 @@ public class JpaChargesWriter {
     private final EntityManager entityManager;
 
     public ChargeEntity save(ChargeEntity chargeEntity) {
-        entityManager.persist(chargeEntity.getCard());
+        fetchCard(chargeEntity);
         entityManager.persist(chargeEntity);
         return chargeEntity;
+    }
+
+    private void fetchCard(ChargeEntity chargeEntity) {
+        var cardEntity = chargeEntity.getCard();
+        try {
+            var existingCard = entityManager.createNamedQuery(CardEntity.GET_BY_NUMBER, CardEntity.class)
+                    .setParameter("number", cardEntity.getNumber())
+                    .getSingleResult();
+            cardEntity.setId(existingCard.getId());
+        } catch (NoResultException noResultException) {
+            entityManager.persist(cardEntity);
+        }
     }
 
 }

@@ -22,6 +22,7 @@ public interface PaymentsPersistenceMapper {
 
     @Mapping(source = "money.amount", target = "amount")
     @Mapping(source = "money.currency", target = "currency")
+    @Mapping(source = "chargeStatus", target = "status")
     ChargeEntity toEntity(Charge charge);
 
     default String toEntity(ChargeId chargeId) {
