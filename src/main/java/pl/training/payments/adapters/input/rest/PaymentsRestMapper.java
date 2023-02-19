@@ -21,4 +21,12 @@ public interface PaymentsRestMapper {
 
     ChargeIdDto toDto(ChargeId chargeId);
 
+    default ChargeId toDomain(String chargeId) {
+        return new ChargeId(chargeId);
+    }
+
+    default ChargeStatusDto toDto(ChargeStatus chargeStatus) {
+        return new ChargeStatusDto(chargeStatus.name());
+    }
+
 }

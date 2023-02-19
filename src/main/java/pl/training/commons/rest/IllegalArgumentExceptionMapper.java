@@ -12,7 +12,7 @@ import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 public class IllegalArgumentExceptionMapper implements ExceptionMapper<IllegalArgumentException> {
 
     @Override
-    public Response toResponse(IllegalArgumentException e) {
+    public Response toResponse(IllegalArgumentException illegalArgumentException) {
         return Response.status(BAD_REQUEST)
                 .entity(new ExceptionDto(Instant.now(), "Illegal argument"))
                 .build();

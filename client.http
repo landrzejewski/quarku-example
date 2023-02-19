@@ -14,7 +14,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/cards/charges/0c7c1bd8-4139-4b66-ac3a-a0f0073432ca
+GET http://localhost:8080/cards/charges/72efb983-30c8-4a22-9d0a-01cb5c029404
 Content-Type: application/json
 Accept: application/json
 

@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 @RequiredArgsConstructor
 public class JpaChargesWriterAdapter implements ChargesWriter {
 
-    private final JpaChargesWriter chargesWriter;
+    private final JpaChargesRepository chargesWriter;
     private final PaymentsPersistenceMapper mapper;
 
     @Override

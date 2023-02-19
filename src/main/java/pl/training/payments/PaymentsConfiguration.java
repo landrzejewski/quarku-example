@@ -1,11 +1,10 @@
 package pl.training.payments;
 
 import pl.training.payments.domain.ChargeCardService;
+import pl.training.payments.domain.CheckChargeStatusService;
 import pl.training.payments.ports.input.ChargeCardUseCase;
-import pl.training.payments.ports.output.CardIssuer;
-import pl.training.payments.ports.output.ChargeIdGenerator;
-import pl.training.payments.ports.output.ChargesWriter;
-import pl.training.payments.ports.output.TimeProvider;
+import pl.training.payments.ports.input.CheckChargeStatusUseCase;
+import pl.training.payments.ports.output.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -17,6 +16,11 @@ public class PaymentsConfiguration {
     public ChargeCardUseCase chargeCardUseCase(CardIssuer cardIssuer, ChargeIdGenerator chargeIdGenerator,
                                                TimeProvider timeProvider, ChargesWriter chargesWriter) {
         return new ChargeCardService(cardIssuer, chargeIdGenerator, timeProvider, chargesWriter);
+    }
+
+    @Produces
+    public CheckChargeStatusUseCase checkChargeStatusUseCase(ChargesReader chargesReader) {
+        return new CheckChargeStatusService(chargesReader);
     }
 
 }

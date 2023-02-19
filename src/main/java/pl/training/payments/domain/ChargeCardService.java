@@ -6,10 +6,7 @@ import pl.training.payments.ports.model.Charge;
 import pl.training.payments.ports.model.ChargeId;
 import pl.training.payments.ports.model.ChargeRequest;
 import pl.training.payments.ports.model.ChargeStatus;
-import pl.training.payments.ports.output.CardIssuer;
-import pl.training.payments.ports.output.ChargeIdGenerator;
-import pl.training.payments.ports.output.ChargesWriter;
-import pl.training.payments.ports.output.TimeProvider;
+import pl.training.payments.ports.output.*;
 
 import static pl.training.payments.ports.model.ChargeStatus.CONFIRMED;
 import static pl.training.payments.ports.model.ChargeStatus.REJECTED;
@@ -21,6 +18,7 @@ public class ChargeCardService implements ChargeCardUseCase {
     private final ChargeIdGenerator idGenerator;
     private final TimeProvider timeProvider;
     private final ChargesWriter chargesWriter;
+    //private final ChargeEventsPublisher eventsPublisher;
 
     @Override
     public ChargeId charge(ChargeRequest chargeRequest) {

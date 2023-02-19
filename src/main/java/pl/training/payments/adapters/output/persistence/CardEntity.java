@@ -7,14 +7,14 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@NamedQuery(name = CardEntity.GET_BY_NUMBER, query = "select c from card c where c.number = :number")
+@NamedQuery(name = CardEntity.GET_ID_BY_NUMBER, query = "select c.id from card c where c.number = :number")
 @Entity(name = "card")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
 public class CardEntity {
 
-    public static final String GET_BY_NUMBER = "cardGetByNumber";
+    public static final String GET_ID_BY_NUMBER = "cardGetIdByNumber";
 
     @GeneratedValue
     @Id
