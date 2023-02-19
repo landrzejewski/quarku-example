@@ -13,9 +13,9 @@ import javax.enterprise.inject.Produces;
 public class PaymentsConfiguration {
 
     @Produces
-    public ChargeCardUseCase chargeCardUseCase(CardIssuer cardIssuer, ChargeIdGenerator chargeIdGenerator,
-                                               TimeProvider timeProvider, ChargesWriter chargesWriter) {
-        return new ChargeCardService(cardIssuer, chargeIdGenerator, timeProvider, chargesWriter);
+    public ChargeCardUseCase chargeCardUseCase(CardIssuer cardIssuer, ChargeIdGenerator chargeIdGenerator, TimeProvider timeProvider,
+                                               ChargesWriter chargesWriter, ChargeEventsPublisher eventsPublisher) {
+        return new ChargeCardService(cardIssuer, chargeIdGenerator, timeProvider, chargesWriter, eventsPublisher);
     }
 
     @Produces
