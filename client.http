@@ -1,0 +1,25 @@
+POST http://localhost:8080/cards/charges
+Content-Type: application/json
+#Accept: application/binary-data
+Accept: application/json
+
+{
+  "amount": 20.0,
+  "currencyCode": "PLN",
+  "cardNumber": "1234567890123",
+  "cardVerificationCode": "123",
+  "cardExpirationDate": "2024-01-01"
+
+}
+
+###
+
+GET http://localhost:8080/cards/charges/0c7c1bd8-4139-4b66-ac3a-a0f0073432ca
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET http://localhost:8080/cards/charges
+Content-Type: application/json
+Accept: application/json
