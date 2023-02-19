@@ -5,6 +5,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=shop
+      - POSTGRES_DB=payments
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
